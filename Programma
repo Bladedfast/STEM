@@ -1,0 +1,565 @@
+n01= str(input("Geef je postcode: "))
+n02 = str(input("Is uw gebouw een nieuwbouw of een renovatie? "))
+n03 = int(input("Geef uw potentieel aantal gezinsleden: "))
+n04 = str(input("Geef uw oppervlakte van uw woning zonder tuin: "))
+n041 = type(n04)
+if n041 == int or n041 == float:
+   n04 = int(n04)
+else:
+   n04 = str(n04)
+n05 = 200
+n051 = 2019
+while not(n05 >= 1900 and n05 <= 2019):
+   n05 = int(input("Geef uw bouwjaar: "))
+x = "Ja"
+tot = 0
+o = 1
+m = 0
+p = 0
+h = 0
+g = 0
+m = 0
+a = 0
+while x == "Ja" or x == "ja":
+   i = str(input("Wat heeft u als verwarming: Mazout, Gas, Accumulatoren, Warmtepomp, Hout of Pellets? "))
+   if i == "mazout" or i == "Mazout":
+       m = int(input("Geef het verbruik van de mazoutketel in L: "))
+       print("uw verbruik voor mazout is", m)
+       tot += 1
+       j = str(input("verwarmd u met nog iets? Ja/ Nee "))
+       if j == "Ja" or j == "ja":
+           o += 1
+           x = "ja"
+       else:
+           x = "nee"
+   elif i == "gas" or i == "Gas":
+       g = int(input("Geef het verbruik van de gasketel in m³: "))
+       print("uw verbruik voor gas is", g)
+       tot += 1
+       j = str(input("verwarmd u met nog iets? Ja/ Nee "))
+       if j == "Ja" or j == "ja":
+           o += 1
+           x = "ja"
+       else:
+           x = "nee"
+   elif i == "accumulatoren" or i == "Accumulatoren":
+       a = int(input("Geef het verbruik van de accumulatoren in kWh: "))
+       print("uw verbruik met accumulatoren is", a)
+       tot += 1
+       j = str(input("verwarmd u met nog iets? Ja/ Nee "))
+       if j == "Ja"or j == "ja":
+           o += 1
+           x = "ja"
+       else:
+           x = "nee"
+   elif i == "warmtepomp" or i == "Warmtepomp":
+       cop = float(input("Wat is uw COP-waarde? "))
+       w = float(input("Geef het verbruik van de warmtepomp in kWh: "))
+       opbr = cop * w
+       w = int(w)
+       opbr = int(opbr)
+       print("uw verbruik met een warmtepomp is", w)
+       print("uw opbrengst van de warmtepomp is", opbr)
+       tot += 1
+       j = str(input("verwarmd u met nog iets? Ja/ Nee "))
+       if j == "Ja"or j == "ja":
+           o += 1
+           x = "ja"
+       else:
+           x = "nee"
+   elif i == "hout" or i == "Hout":
+       h = int(input("Geef het verbruik van de houtkachel in kg: "))
+       print("uw verbruik met een houtkachel is", h)
+       tot += 1
+       j = str(input("verwarmd u met nog iets? Ja/ Nee "))
+       if j == "Ja"or j == "ja":
+           o += 1
+           x = "ja"
+       else:
+           x = "nee"
+   elif i == "pellets" or i == "Pellets":
+       p = int(input("Geef het verbruik van de peletketel in kg: "))
+       print("uw verbruik met een peletkegel is", p)
+       tot += 1
+       j = str(input("verwarmd u met nog iets? Ja/ Nee "))
+       if j == "Ja"or j == "ja":
+           o += 1
+           x = "ja"
+       else:
+           x = "nee"
+   else:
+       print("Geef opnieuw in")
+print("totaal aantal verbruikers", o)
+b = 1
+verb = 0
+if g != 0:
+   g = float(g)
+   g *= 8.8
+   verb += g
+else:
+   g = 0
+if h != 0:
+   h = float(h)
+   h *= 4.22
+   verb += h
+else:
+   h = 0
+if p != 0:
+   p = float(p)
+   p *= 4.95
+   verb += p
+else:
+   p = 0
+if m != 0:
+   m = float(m)
+   m *= 10.5
+   verb += m
+else:
+   m = 0
+if a != 0:
+   verb += a
+else:
+   a = 0
+verb = int(verb)
+
+print(verb, "kWh")
+n11 = int(input("Wat is uw elektriciteits verbruik vorig jaar? "))
+ww = n03*2,1
+n10 = str(input("Heeft u een zwembad? Ja/Nee "))
+if n10 == "Ja" or n10 == "ja" or n10 == "JA":
+   q = str(input("Wat is het volume van uw zwembad? "))
+   p = str(input("Verwarmd u uw zwembad? "))
+   if p == "Ja" or p == "ja" or p == "JA":
+       print("U zal niet kunnen verwarmen met een pelletkegel. ")
+       exit()
+   else:
+       o
+else:
+   o
+zp = 0
+n12 = str(input("Heeft u zonnepanelen? "))
+if n12 == "Ja" or n12 == "ja" or n12 == "JA":
+   print ("Indien u geen idee heeft wat de waarde is an het gevraagde typ: /")
+   zp = int(input("Hoeveel zonnepanelen heeft u? "))
+   u = int(input("Wat is het vermogen van uw omvormer? "))
+   y = str(input("In welke richting zijn uw zonnepanelen gericht? W/ZW/Z/ZO/O/NO/N/NW "))
+   t = str(input("In welke helling staan uw zonnepanelen? 10/20/35-38/50/60/70/85° "))
+else:
+   n12 = 'nee'
+wx = 0
+wz = 1
+s = 280
+while n12 == "Ja" or n12 == "ja" or n12 == "JA":
+   if s == '/':
+       s = 280
+   else:
+       s = int(s)
+   n12 = 'nee'
+while wx != wz and n12 == "Ja" or n12 == "ja" or n12 == "JA":
+   if t>=10 and t<20:
+       t = 1
+       wz = 0
+   elif t>=20 and t<35:
+       t = 2
+       wz = 0
+   elif t>=35 and t<50:
+       t = 3
+       wz = 0
+   elif t>=50 and t<60:
+       t = 4
+       wz = 0
+   elif t>=60 and t<70:
+       t = 5
+       wz = 0
+   elif t>=70 and t<80:
+       t = 6
+       wz = 0
+   elif t>=80 and t<90:
+       t = 7
+       wz = 0
+   elif t== '/':
+       t = 4
+       wz = 0
+   else:
+       continue
+opv = 0
+wz == 1
+while wx != wz and n12 == "Ja" or n12 == "ja" or n12 == "JA":
+   if y == 'W'or y == 'west' or y == "westen" or y=="Westen"or y == "West":
+       if t == 1:
+           opv = 90
+       elif t == 2:
+           opv = 90
+       elif t == 3:
+           opv = 85
+       elif t == 4:
+           opv = 80
+       elif t == 5:
+           opv = 75
+       elif t == 6:
+           opv = 70
+       else:
+           opv = 65
+   elif y == 'ZW'or y == 'Zuidwesten' or y == "zuidwesten" :
+       if t == 1:
+           opv = 95
+       elif t == 2:
+           opv = 95
+       elif t == 3:
+           opv = 100
+       elif t == 4:
+           opv = 95
+       elif t == 5:
+           opv = 90
+       elif t == 6:
+           opv = 85
+       else:
+           opv = 80
+   elif y == 'Z'or y == 'Zuiden' or y == "zuid" or y=="zuiden"or y == "Zuid":
+       if t == 1:
+           opv = 95
+       elif t == 2:
+           opv = 100
+       elif t == 3:
+           opv = 100
+       elif t == 4:
+           opv = 100
+       elif t == 5:
+           opv = 95
+       elif t == 6:
+           opv = 90
+       else:
+           opv = 80
+   elif y == 'ZO'or y == 'Zuidoosten' or y == "zuidoosten" or y=="zuidoost"or y == "zuidoost":
+       if t == 1:
+           opv = 95
+       elif t == 2:
+           opv = 95
+       elif t == 3:
+           opv = 95
+       elif t == 4:
+           opv = 95
+       elif t == 5:
+           opv = 90
+       elif t == 6:
+           opv = 85
+       else:
+           opv = 80
+   elif y == 'O'or y == 'Oosten' or y == "Oost" or y=="oosten"or y == "oost":
+       if t == 1:
+           opv = 90
+       elif t == 2:
+           opv = 90
+       elif t == 3:
+           opv = 85
+       elif t == 4:
+           opv = 80
+       elif t == 5:
+           opv = 75
+       elif t == 6:
+           opv = 70
+       else:
+           opv = 65
+   elif y == 'NO'or y == 'Noordoosten' or y == "noordoosten" or y=="Noordoost"or y == "noordoost":
+       if t == 1:
+           opv = 85
+       elif t == 2:
+           opv = 80
+       elif t == 3:
+           opv = 70
+       elif t == 4:
+           opv = 60
+       elif t == 5:
+           opv = 55
+       elif t == 6:
+           opv = 50
+       else:
+           opv = 45
+   elif y == 'N'or y == 'Noorden' or y == "noord" or y=="noorden"or y == "Noord":
+       if t == 1:
+           opv = 85
+       elif t == 2:
+           opv = 75
+       elif t == 3:
+           opv = 60
+       elif t == 4:
+           opv = 50
+       elif t == 5:
+           opv = 45
+       elif t == 6:
+           opv = 40
+       else:
+           opv = 35
+   elif y == '/':
+       opv = 75
+   else:
+       if t == 1:
+           opv = 85
+       elif t == 2:
+           opv = 80
+       elif t == 3:
+           opv = 70
+       elif t == 4:
+           opv = 60
+       elif t == 5:
+           opv = 55
+       elif t == 6:
+           opv = 50
+       else:
+           opv = 45
+   wz = 0
+   opv /= 100
+lfnh = 10
+lfnh = int(lfnh)
+n13 = int(input("Hoe warm wilt u het binnen? "))
+#jan
+jangd = 480
+janmt = -10
+janmt = int(janmt)
+jankc = lfnh/(n13-janmt)
+jankc = int(jankc)
+jankw = janmt*jankc*24
+jankw += (31*n03*2.1)
+janduu = jankw/lfnh
+jandd = janduu/31
+jange = jandd*0.6
+pvjan= zp*280*opv*0.026/1000
+
+#feb
+febgd = 433
+febmt = -10
+febmt = int(febmt)
+febkc = lfnh/(n13-febmt)
+febkc = int(febkc)
+febkw = febmt*febkc*24+(28*n03*2.1)
+febduu = febkw/lfnh
+febdd = febduu/28
+febge = febdd*0.6
+pvfeb= zp*280*opv*0.047/1000
+
+#ma
+magd = 350
+mamt = -5
+mamt = int(mamt)
+makc = lfnh/(n13-mamt)
+makc = int(makc)
+makw = mamt*makc*24+(31*n03*2.1)
+maduu = makw/lfnh
+madd = maduu/31
+mage = madd*0.6
+pvma= zp*280*opv*0.089/1000
+
+#apr
+aprgd = 240
+aprmt = 0
+aprmt = int(aprmt)
+aprkc = lfnh/(n13-aprmt)
+aprkc = int(aprkc)
+aprkw = aprmt*aprkc*24+(30*n03*2.1)
+aprduu = aprkw/lfnh
+aprdd = aprduu/30
+aprge = aprdd*0.6
+pvapr= zp*280*opv*0.12/1000
+
+#mei
+meigd = 99
+meimt = 7.5
+meimt = int(meimt)
+meikc = int(lfnh/(n13-meimt))
+meikw = meimt*meikc*24+(31*n03*2.1)
+meiduu = meikw/lfnh
+meidd = meiduu/31
+meige = meidd*0.6
+pvmei= zp*280*opv*0.133/1000
+
+#jun
+jungd = 42
+junmt = 7.5
+junmt = int(junmt)
+junkc = int(lfnh/(n13-junmt))
+junkw = junmt*junkc*24+(30*n03*2.1)
+junduu = junkw/lfnh
+jundd = junduu/30
+junge = jundd*0.6
+pvjun= zp*280*opv*0.131/1000
+
+#juli
+julgd = 13
+julmt = 7.5
+julmt = int(julmt)
+julkc = int(lfnh/(n13-julmt))
+julkw = julmt*julkc*24+(31*n03*2.1)
+julduu = kw/lfnh
+juldd = duu/31
+julge = juldd*0.133
+pvjul= zp*280*opv*0.133/1000
+
+
+#aug
+auggd = 14
+augmt = 7.5
+augmt = int(augmt)
+augkc = int(lfnh/(n13-augmt))
+augkw = augmt*augkc*24+(31*n03*2.1)
+augduu = augkw/lfnh
+augdd = augduu/31
+augge = augdd*0.6
+pvaug= zp*280*opv*0.118/1000
+
+#sep
+sepgd = 62
+sepmt = 5
+sepmt = int(sepmt)
+sepkc = int(lfnh/(n13-sepmt))
+sepkw = sepmt*sepkc*24+(30*n03*2.1)
+sepduu = sepkw/lfnh
+sepdd = sepduu/30
+sepge = sepdd*0.6
+pvsep= zp*280*opv*0.094/1000
+
+#okt
+oktgd = 209
+oktmt = 0
+oktmt = int(oktmt)
+oktkc = int(lfnh/(n13-oktmt))
+oktkw = oktmt*oktkc*24+(31*n03*2.1)
+oktduu = oktkw/lfnh
+oktdd = oktduu/31
+oktge = oktdd*0.6
+pvokt= zp*280*opv*0.064/1000
+
+#nov
+novgd = 293
+novmt = -5
+novmt = int(novmt)
+novkc = int(lfnh/(n13-novmt))
+novkw = novmt*novkc*24+(30*n03*2.1)
+novduu = novkw/lfnh
+novdd = novduu/30
+novge = novdd*0.6
+pvnov= zp*280*opv*0.029/1000
+
+#dec
+decgd = 379
+decmt = -10
+decmt = int(decmt)
+deckc = int(lfnh/(n13-decmt))
+deckw = decmt*deckc*24+(31*n03*2.1)
+decduu = deckw/lfnh
+decdd = decduu/31
+decge = decdd*0.6
+pvdec= (zp*280*opv*0.017)/1000
+
+#Vergelijking
+
+#tot
+jaaropbr = jankw+febkw+makw+aprkw+meikw+junkw+julkw+augkw+sepkw+oktkw+novkw+deckw
+print("Dit is uw verwacht jaar verbruik: ", jaaropbr, "kWh")
+print("Dit uw verwacht jaar verbruik in pellets", jaarverb/5,"in kg")
+jaaropbre = decdd*31+novdd*30+okt*31+sepdd*30+augdd*31+juldd*31+30*jundd+31*meidd+30*+31*madd+febdd*28+jandd*31
+print("Dit is uw verwahte jaarproductie voor elektriciteit", jaaropbre)
+if n12 == "ja" or n12 == "JA" or n12 == "Ja":
+   pvtot = (zp*280*opv)/1000
+   print("Dit is uw geproduceerde elektriciteit door uw zonne panelen: ", pvtot, "kWh")
+else:
+   print("U heeft de optie nog open voor zonnepanelen.")
+print("Wilt u een gedetailleerder verslag per maand?")
+n14 = str(input("Indien ja typ: ja. Indien nee typ: nee "))
+if n14 == "ja" or n14 == "JA" or n14 == "Ja":
+   print("Voor januarie: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",jankw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", jandd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", jange, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvjan, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvjan+jange, "kWh")
+   print("Voor februarie: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",febkw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", febdd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", febge, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvfeb, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvfeb+febge, "kWh")
+   print(" ")
+   print("Voor maart: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",makw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", madd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", mage, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvma, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvma+mage, "kWh")
+   print(" ")
+   print("Voor april: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",aprkw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", aprdd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", aprge, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvapr, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvapr+aprge, "kWh")
+   print(" ")
+   print("Voor mei: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",meikw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", meidd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", meige, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvmei, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvmei+meige, "kWh")
+   print(" ")
+   print("Voor juni: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",junkw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", jundd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", junge, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvjun, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvjun+junge, "kWh")
+   print(" ")
+   print("Voor juli: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",julkw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", juldd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", julge, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvjul, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvjul+julge, "kWh")
+   print(" ")
+   print("Voor augustus: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",augkw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", augdd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", augge, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvaug, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvaug+augge, "kWh")
+   print(" ")
+   print("Voor september: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",sepkw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", sepdd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", sepge, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvsep, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvsep+sepge, "kWh")
+   print(" ")
+   print("Voor oktober: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",oktkw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", oktdd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", oktge, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvokt, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvokt+oktge, "kWh")
+   print(" ")
+   print("Voor november: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",novkw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", novdd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", novge, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvnov, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvnov+novge, "kWh")
+   print(" ")
+   print("Voor december: ")
+   print("Totale hoeveelheid verwachte productie van warmte: ",deckw,"kWh" )
+   print("Gemiddeld aantal draaiuren per dag: ", decdd, "u")
+   print("Gemiddelde productie van electriciteit door de stirling motor: ", decge, "kWh")
+   if zp != 0:
+       print("Verwachte productie van eletriciteit door zonnepanelen: ", pvdec, "kWh")
+       print("Gecumuleerde hoeveelheid verwachting voor geproduceerde eletrciteit: ", pvdec+decge, "kWh")
+
+
+
